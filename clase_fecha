@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package picoyplaca;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ *
+ * @author DAVID MOSQUERA
+ */
+public class fecha {
+      Date fech_conv;
+      String dia_cons;
+    public fecha (String f) throws ParseException{
+                   
+                    
+                  
+                    SimpleDateFormat form_fecha = new SimpleDateFormat("dddd/MM/yyyy");
+                    fech_conv = form_fecha.parse(f);
+//                    System.out.println(fech_conv);  imprime fecha completa
+                    
+                    SimpleDateFormat a = new SimpleDateFormat("EEEE"); // the day of the week spelled out completely
+                         
+                          dia_cons=a.format(fech_conv);
+                    System.out.println("El Dia de hoy es :  "+dia_cons);      //   imprime dia de la fecha ingresada
+        
+        
+        }
+    
+    
+    
+
+}
