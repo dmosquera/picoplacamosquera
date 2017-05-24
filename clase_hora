@@ -1,0 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package picoyplaca;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ *
+ * @author DAVID MOSQUERA
+ */
+public class hora {
+    Date hora_conv;
+   String hora_cons;
+    public hora(String h) throws ParseException{
+
+                    SimpleDateFormat form_hora= new SimpleDateFormat("HH:mm");      //formatea el string  de hora ingresada a tipo date
+                    hora_conv = form_hora.parse(h);
+                    
+                          SimpleDateFormat a = new SimpleDateFormat("HH:mm"); // extrae la hora
+                         
+                          hora_cons=a.format(hora_conv);
+
+
+    }
+}
