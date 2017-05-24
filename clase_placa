@@ -1,0 +1,44 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package picoyplaca;
+
+/**
+ *
+ * @author DAVID MOSQUERA
+ */
+public class placa {
+            String digito;
+            String dia="";
+    public placa(String p){
+
+        digito=""+p.charAt(p.length()-1);          //obtiene el ultimo digito de la placa, lo almacena en digito 
+        int dia1= Integer.parseInt(digito);         //convierte a int
+        
+        switch (dia1){                        //asignacion de digito al dia de la semana correspondiente
+              case 1: dia="lunes";
+                            break;
+              case 2: dia="lunes";
+                            break;
+              case 3: dia="martes";
+                            break;
+              case 4: dia="martes";
+                            break;
+             case 5: dia="miércoles";
+                            break;
+             case 6: dia="miércoles";
+                            break;
+             case 7: dia="jueves";
+                            break;
+             case 8: dia="jueves";
+                            break;
+             case 9: dia="viernes";
+                            break;
+             case 0: dia="viernes";
+                            break;
+    }
+        
+}
+}
