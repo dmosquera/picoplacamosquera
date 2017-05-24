@@ -1,0 +1,82 @@
+//Programa de Pico y placa
+//Realizado por David Mosquera R
+//24/05/2017
+
+//clase principal Picoyplaca
+
+package picoyplaca;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+public class Picoyplaca {
+ static Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws ParseException {
+     try {
+         String plac_aut  ,  fech_cons = null,hora_cons=null;            // variables para almacenar placa, fecha a consultar y hora a circular
+         System.out.println("Bienvenido al sistema de verificación PICO y PLACA");
+         
+         System.out.println("Por favor digite la Placa del vehiculo a consultar:");       
+         plac_aut=  scan.next();
+         placa p = new placa(plac_aut);             //objeto de la clase placa
+         System.out.println("Por favor digite la fecha en la que va a circular -- ej: 28/12/2016: ");
+         fech_cons=  scan.next();
+         fecha fe= new fecha(fech_cons);         //objeto de la clase fecha
+
+       if(fe.dia_cons!=p.dia)                       //compara el dia de la placa con la fecha ingresada
+       {
+             System.out.println("Ingrese la hora a la que desea circular:");
+             hora_cons=  scan.next();
+             hora ho= new hora(hora_cons);       //objeto de la clase hora
+                
+              //comparacion de la hora ingresada con los limites de manana y tarde
+             SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
+             Date man1 = parser.parse("07:00");         //limite inicial manana
+             Date man2 = parser.parse("09:30");          //limite final manana
+             Date tar1 = parser.parse("16:00");              //limite inicial tarde
+             Date tar2 = parser.parse("19:30");              //limite final tarda
+
+             if (ho.hora_conv.after(man1) &&ho. hora_conv.before(man2)) 
+             {
+                         System.out.println("PROHIBIDO CIRCULAR A ESA HORA");
+
+             }
+               else
+             {
+                if (ho.hora_conv.after(man1) &&ho. hora_conv.before(man2))
+                   {
+                     System.out.println("PROHIBIDO CIRCULAR A ESA HORA");
+
+                    } 
+                else
+                    {
+                        if (ho.hora_conv.after(tar1) &&ho. hora_conv.before(tar2))
+                            {
+                                 System.out.println("PROHIBIDO CIRCULAR A ESA HORA");
+
+                             } 
+                        else
+                              System.out.println("Usted puede circular a esa hora");
+                    }
+
+    // Invalid date was entered
+}
+              
+              
+
+       }
+       else
+         System.out.println("Circulacion permitida");
+       
+     } catch (ParseException ex) {
+         Logger.getLogger(Picoyplaca.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }
+
+}
